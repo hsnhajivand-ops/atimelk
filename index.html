@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a0a">
+<meta name="description" content="آتی ملک؛ معرفی پروژه ساختمان محمدامین و امکان خرید متری ساختمان">
+<title>آتی ملک | خرید متری ساختمان محمدامین</title>
+<style>
+*{box-sizing:border-box}
+:root{--g:#dfa94e;--g2:#f5cf7b;--b:#080a0a;--b2:#111617}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#fff;color:#171717}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.w{width:min(1180px,92%);margin:auto}
+header{height:72px;background:#080909;color:#fff;border-bottom:1px solid #a77a32;position:sticky;top:0;z-index:9}
+.nav{height:100%;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:8px;margin-left:auto}
+.mark{width:43px;height:43px;border:2px solid var(--g);display:grid;place-items:center;color:var(--g);font-size:23px}
+.brand b{display:block;color:var(--g2);font-size:19px}
+.brand small{display:block;font-size:8px;color:#ddd}
+.menu{display:flex;gap:25px;font-size:12px;color:#ddd}
+.menu a:hover,.menu .active{color:var(--g2)}
+.login{margin-right:auto;background:transparent;border:1px solid var(--g);color:#fff;border-radius:20px;padding:7px 17px;font-size:11px}
+.hero{height:500px;position:relative;color:#fff;background:linear-gradient(90deg,#0001 0,#0003 42%,#070909f5 78%),url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=90') center/cover}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:100px;background:linear-gradient(transparent,#080909)}
+.hero .w{height:100%;display:flex;align-items:center;justify-content:flex-start;position:relative;z-index:2}
+.copy{width:47%;padding-bottom:40px}
+.tiny{font-size:12px}
+.hero h1{color:var(--g2);font-size:45px;margin:5px 0}
+.hero h2{font-size:25px;margin:0}
+.hero p{font-size:13px;color:#ddd;line-height:2}
+.btn{background:linear-gradient(#f7ce7d,#d89935);border:0;border-radius:8px;padding:11px 24px;font-weight:bold;cursor:pointer}
+.heroStats{position:absolute;z-index:3;bottom:0;left:50%;transform:translateX(-50%);width:min(900px,90%);display:grid;grid-template-columns:repeat(3,1fr);background:#080a0ae8;border:1px solid #a97b3299;border-radius:9px 9px 0 0}
+.heroStats div{text-align:center;padding:11px;border-left:1px solid #805d2d66}
+.heroStats div:last-child{border:0}
+.heroStats span{display:block;font-size:10px;color:#aaa}
+.heroStats b{font-size:16px}
+section{padding:40px 0}
+.project{background:#fff}
+.pg{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.photo{height:350px;border-radius:7px;background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=90') center/cover;position:relative}
+.tag{position:absolute;top:14px;right:14px;background:#111d;color:var(--g2);border:1px solid var(--g);border-radius:8px;padding:7px 12px;font-size:11px}
+.thumbs{position:absolute;bottom:8px;left:8px;right:8px;display:flex;gap:6px}
+.thumb{height:48px;flex:1;background:#555;border:2px solid #fff;border-radius:4px}
+.specs{display:grid;grid-template-columns:1fr 1fr;border:1px solid #ddd;border-radius:8px;overflow:hidden}
+.spec{padding:11px;border-bottom:1px solid #ddd}
+.spec:nth-child(odd){border-left:1px solid #ddd}
+.spec small{display:block;color:#888;font-size:9px}
+.spec strong{font-size:12px}
+.buy{background:#090c0d;color:#fff;background-image:radial-gradient(circle at 10% 40%,#302619,transparent 27%)}
+.buyGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.promo{min-height:300px;border-radius:7px;background:linear-gradient(0deg,#050707ef,#05070722),url('https://images.unsplash.com/photo-1560185008-b033106af5c3?auto=format&fit=crop&w=900&q=90') center/cover;display:flex;align-items:flex-end;padding:23px}
+.promo h2{color:var(--g2);font-size:20px}
+.promo p{font-size:11px;color:#ddd}
+.box{background:#111617;border:1px solid #88672f;border-radius:8px;padding:20px}
+.box h3{text-align:center;font-size:15px}
+.counter{display:flex;gap:5px}
+.counter button{width:38px;background:#292d2e;color:#fff;border:0;border-radius:5px}
+.counter input{flex:1;background:#090b0c;color:#fff;border:1px solid #444;text-align:center;border-radius:5px;min-width:0}
+.line{display:flex;justify-content:space-between;margin:14px 0;font-size:11px;gap:8px}
+.total{color:var(--g2);font-size:21px}
+.step{display:flex;gap:11px;align-items:center;margin:17px 0}
+.step i{width:39px;height:39px;flex-shrink:0;border:1px solid var(--g);border-radius:50%;display:grid;place-items:center;color:var(--g2);font-style:normal}
+.step small{display:block;color:#999;font-size:9px;margin-top:5px}.account{background:#fff}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.phone{height:350px;border-radius:10px;background:linear-gradient(135deg,#37342e,#090b0b);position:relative;overflow:hidden}
+.phone:before{content:"";position:absolute;width:150px;height:285px;left:20%;top:30px;border:8px solid #171717;border-radius:25px;background:#151919;box-shadow:0 18px 45px #000}
+.phone:after{content:"آتی ملک";position:absolute;left:calc(20% + 27px);top:140px;color:var(--g2);font-weight:bold;font-size:19px}
+.account li{margin:11px 0;font-size:12px}
+.account li::marker{color:var(--g)}
+.features{background:#fff}
+.fg{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+.feature{text-align:center;padding:18px 8px;border-left:1px solid #ddd}
+.feature:last-child{border:0}
+.ico{width:52px;height:52px;border:1px solid #d5ad60;border-radius:50%;display:grid;place-items:center;margin:auto;color:#a27324;font-size:22px}
+.feature h4{font-size:12px;margin:6px}
+.feature p{font-size:9px;color:#777}
+.lower{background:#fff}
+.lg{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.gallery{background:#111516;color:#fff;border-radius:8px;padding:17px}
+.gallery h3{color:var(--g2);text-align:center}
+.gg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.gi{height:115px;background:center/cover;border-radius:4px}
+.review{border:1px solid #ddd;border-radius:8px;padding:22px}
+.stars{color:#c28b2d}
+.cta{margin-top:18px;padding:24px;border-radius:8px;color:#fff;background:linear-gradient(90deg,#111515ed,#111515aa),url('https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1600&q=85') center/cover;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.cta h2{color:var(--g2)}
+footer{background:#050606;color:#aaa;border-top:1px solid #a7782d;padding:36px 0 12px}
+.fg2{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.fg2 h4{color:var(--g2)}
+.fg2 a,.fg2 p{font-size:10px;display:block;margin:6px 0}
+.copy{text-align:center;border-top:1px solid #292929;margin-top:25px;padding-top:12px;font-size:8px}
+.modal{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:20;padding:15px}
+.modal.open{display:grid}
+.modalBox{width:min(560px,100%);max-height:90vh;overflow:auto;background:#111617;color:#fff;border:1px solid var(--g);border-radius:12px;padding:22px}
+.close{float:left;background:none;border:0;color:#aaa;font-size:24px}
+.tabs{display:flex;gap:5px;margin:15px 0}
+.tab{flex:1;background:#202526;border:1px solid #333;color:#aaa;padding:9px}
+.tab.on{border-color:var(--g);color:var(--g2)}
+.dash{display:none}
+.dash.on{display:block}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mini{background:#181c1d;padding:13px;border:1px solid #333;font-size:11px}
+.mini b{display:block;color:var(--g2);font-size:15px;margin-top:8px}
+.tx{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding:10px;font-size:10px}
+.ok{color:#49c57c}
+@media(max-width:900px){
+.menu{display:none}
+.copy{width:65%}
+.pg,.buyGrid,.ag,.lg{grid-template-columns:1fr}
+.fg{grid-template-columns:repeat(3,1fr)}
+.fg2{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+header{height:64px}
+.hero{height:620px}
+.hero .w{align-items:flex-start;padding-top:65px}
+.copy{width:100%}
+.hero h1{font-size:34px}
+.heroStats{grid-template-columns:1fr}
+.heroStats div{border-left:0;border-bottom:1px solid #805d2d66;padding:7px}
+.photo{height:270px}
+.fg{grid-template-columns:1fr 1fr}
+.gg{grid-template-columns:1fr 1fr}
+.cta{display:block}
+.cta .btn{margin-top:10px}
+.fg2{grid-template-columns:1fr}
+.specs{grid-template-columns:1fr}
+.spec:nth-child(odd){border-left:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="w nav">
+<a class="brand" href="#home">
+<span class="mark">⌂</span>
+<span><b>آتی ملک</b><small>پلتفرم فروش متری ساختمان</small></span>
+</a>
+<nav class="menu">
+<a class="active" href="#home">صفحه اصلی</a>
+<a href="#project">پروژه‌ها</a>
+<a href="#buy">خرید متری</a>
+<a href="#about">درباره ما</a>
+<a href="#contact">تماس با ما</a>
+</nav>
+<button class="login" onclick="openModal()">ورود / ثبت‌نام</button>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="w">
+<div class="copy">
+<div class="tiny">آتی ملک؛ پلی مطمئن برای سرمایه‌گذاری در آینده</div>
+<h1>خرید متری ساختمان</h1>
+<h2>با امنیت و شفافیت بیشتر</h2>
+<p>در آتی ملک، پروژه ساختمانی محمدامین را بشناسید، مشخصات پروژه را بررسی کنید و برای دریافت اطلاعات خرید متری با ما در ارتباط باشید.</p>
+<button class="btn" onclick="go('project')">مشاهده پروژه محمدامین ←</button>
+</div>
+</div>
+<div class="heroStats">
+<div><span>قیمت اعلام‌شده هر مترمربع</span><b>۶۰,۰۰۰,۰۰۰ تومان</b></div>
+<div><span>پیشرفت اعلام‌شده پروژه</span><b>۱۰ درصد</b></div>
+<div><span>حداقل متراژ نمونه ماشین‌حساب</span><b>۲.۵ متر</b></div>
+</div>
+</section>
+
+<section class="project" id="project">
+<div class="w pg">
+<div class="photo">
+<span class="tag">پیشرفت پروژه<br><b>۱۰ درصد</b><br>شهریور ۱۴۰۵</span>
+<div class="thumbs">
+<div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div>
+</div>
+</div>
+<div>
+<span style="background:#ead7b0;padding:4px 12px;border-radius:14px;font-size:10px">پروژه در حال ساخت</span>
+<h2>پروژه محمدامین</h2>
+<div style="font-size:12px;color:#777">📍 ازنا، استان لرستان</div>
+<p>پروژه محمدامین با هدف معرفی یک پروژه واقعی ساختمانی و ارائه اطلاعات روشن درباره مشخصات، متراژ و روند ساخت معرفی می‌شود.</p>
+<div class="specs">
+<div class="spec"><small>نوع کاربری</small><strong>واحد مسکونی</strong></div>
+<div class="spec"><small>تعداد واحدها</small><strong>۸ واحد</strong></div>
+<div class="spec"><small>متراژ واحدها</small><strong>۸۰ و ۹۰ متر</strong></div>
+<div class="spec"><small>قیمت اعلام‌شده هر متر</small><strong>۶۰ میلیون تومان</strong></div>
+<div class="spec"><small>پیشرفت اعلام‌شده</small><strong>۱۰ درصد</strong></div>
+<div class="spec"><small>موقعیت پروژه</small><strong>ازنا، لرستان</strong></div>
+</div>
+<br>
+<button class="btn" onclick="go('buy')">مشاهده بخش خرید متری</button>
+</div>
+</div>
+</section>
+
+<section class="buy" id="buy">
+<div class="w buyGrid">
+<div class="promo">
+<div>
+<h2>سرمایه‌گذاری در پروژه محمدامین</h2>
+<p>مشخصات پروژه را بررسی کنید و برای شرایط قرارداد، روش پرداخت و مدارک خرید، اطلاعات دقیق دریافت کنید.</p>
+</div>
+</div>
+
+<div class="box">
+<h3>ماشین‌حساب خرید متری</h3>
+<label style="font-size:10px;color:#aaa" for="meterInput">متراژ موردنظر</label>
+<div class="counter">
+<button type="button" onclick="step(-.5)">−</button>
+<input id="meterInput" type="number" min="2.5" step=".5" value="10" oninput="calc()">
+<button type="button" onclick="step(.5)">+</button>
+</div>
+<div class="line"><span>قیمت هر متر</span><b>۶۰,۰۰۰,۰۰۰ تومان</b></div>
+<div class="line"><span>مبلغ محاسبه‌شده</span><b class="total" id="totalPrice">۶۰۰,۰۰۰,۰۰۰ تومان</b></div>
+<p style="font-size:10px;color:#aaa;line-height:1.9">این ماشین‌حساب صرفاً بر اساس قیمت واردشده محاسبه می‌کند. مبلغ نهایی، شرایط قرارداد و امکان خرید باید پیش از پرداخت تأیید شوند.</p>
+<button class="btn" style="width:100%" onclick="openModal()">درخواست اطلاعات خرید متری</button>
+</div>
+
+<div class="box">
+<h3>مراحل پیشنهادی خرید</h3>
+<div class="step"><i>۱</i><div><b>انتخاب متراژ</b><small>متراژ دلخواه خود را محاسبه کنید.</small></div></div>
+<div class="step"><i>۲</i><div><b>دریافت شرایط و مدارک</b><small>جزئیات قرارداد و اسناد را بررسی کنید.</small></div></div>
+<div class="step"><i>۳</i><div><b>تأیید و عقد قرارداد</b><small>پس از بررسی حقوقی و توافق طرفین.</small></div></div>
+<div class="step"><i>۴</i><div><b>پیگیری وضعیت پروژه</b><small>گزارش‌های پیشرفت را دنبال کنید.</small></div></div>
+</div>
+</div>
+</section><section class="account" id="about">
+<div class="w ag">
+<div class="phone"></div>
+<div>
+<h2>پنل کاربری اختصاصی آتی ملک</h2>
+<p>هدف این بخش، فراهم‌کردن امکان مدیریت و پیگیری اطلاعات خرید کاربران است.</p>
+<ul>
+<li>مشاهده متراژ خریداری‌شده</li>
+<li>پیگیری پرداخت‌ها و تراکنش‌ها</li>
+<li>ثبت درخواست برداشت وجه</li>
+<li>مشاهده قراردادها و اسناد</li>
+<li>اطلاع از روند پیشرفت پروژه</li>
+</ul>
+<button class="btn" onclick="openModal()">ورود به پنل کاربری</button>
+<p style="font-size:10px;color:#888;line-height:2">پنل فعلی نمایشی است؛ اطلاعات کاربران، پرداخت‌ها و برداشت‌ها هنوز به سامانه واقعی متصل نشده‌اند.</p>
+</div>
+</div>
+</section>
+
+<section class="features">
+<div class="w fg">
+<div class="feature">
+<div class="ico">★</div>
+<h4>شفافیت اطلاعات</h4>
+<p>معرفی مشخصات و روند پروژه</p>
+</div>
+<div class="feature">
+<div class="ico">▣</div>
+<h4>پرداخت آنلاین</h4>
+<p>قابل اتصال به درگاه بانکی پس از راه‌اندازی زیرساخت</p>
+</div>
+<div class="feature">
+<div class="ico">▤</div>
+<h4>درخواست برداشت</h4>
+<p>قابل پیاده‌سازی با سامانه کاربری واقعی</p>
+</div>
+<div class="feature">
+<div class="ico">◉</div>
+<h4>خرید متری</h4>
+<p>محاسبه مبلغ بر اساس متراژ انتخابی</p>
+</div>
+<div class="feature">
+<div class="ico">✓</div>
+<h4>پیگیری پروژه</h4>
+<p>امکان انتشار گزارش‌های پیشرفت</p>
+</div>
+</div>
+</section>
+
+<section class="lower">
+<div class="w">
+<div class="lg">
+<div class="gallery">
+<h3>گالری تصاویر پروژه و ساختمان</h3>
+<div class="gg">
+<div class="gi" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=85')"></div>
+<div class="gi" style="background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=85')"></div>
+<div class="gi" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=85')"></div>
+<div class="gi" style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=85')"></div>
+</div>
+<p style="font-size:10px;color:#bbb;line-height:2">تصاویر این گالری نمونه‌اند و باید با عکس‌های واقعی پروژه محمدامین جایگزین شوند.</p>
+</div>
+
+<div class="review">
+<h3>اعتماد با اطلاعات شفاف</h3>
+<div class="stars">★★★★★</div>
+<p>پیش از هر خرید، مشخصات پروژه، مدارک، شرایط قرارداد و تعهدات طرفین را با دقت بررسی کنید.</p>
+<hr style="border:0;border-top:1px solid #ddd;margin:20px 0">
+<h4>گزارش پیشرفت پروژه</h4>
+<p>گزارش‌های تصویری و توضیحات مربوط به مراحل ساخت می‌توانند در این بخش منتشر شوند.</p>
+<button class="btn" onclick="go('project')">مشاهده مشخصات پروژه</button>
+</div>
+</div>
+
+<div class="cta">
+<div>
+<h2>آینده را آگاهانه بسازید</h2>
+<p>برای دریافت اطلاعات پروژه محمدامین و شرایط خرید متری با ما در ارتباط باشید.</p>
+</div>
+<button class="btn" onclick="openModal()">درخواست اطلاعات ←</button>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+<div class="w fg2">
+<div>
+<div class="brand">
+<span class="mark">⌂</span>
+<span><b>آتی ملک</b><small>پلتفرم معرفی و فروش متری ساختمان</small></span>
+</div>
+<p style="line-height:2">آتی ملک با هدف معرفی پروژه‌های ساختمانی و فراهم‌کردن دسترسی روشن‌تر به اطلاعات خرید متری فعالیت می‌کند.</p>
+</div>
+
+<div>
+<h4>دسترسی سریع</h4>
+<a href="#home">صفحه اصلی</a>
+<a href="#project">پروژه محمدامین</a>
+<a href="#buy">خرید متری</a>
+<a href="#about">پنل کاربری</a>
+</div>
+
+<div>
+<h4>راهنمای سایت</h4>
+<a href="#contact">شرایط و قوانین</a>
+<a href="#contact">حریم خصوصی</a>
+<a href="#contact">راهنمای خرید</a>
+<a href="#contact">پشتیبانی</a>
+</div>
+
+<div>
+<h4>اطلاعات تماس</h4>
+<p>ازنا، استان لرستان، ایران</p>
+<p>تلفن: شماره تماس خود را وارد کنید</p>
+<p>ایمیل: ایمیل رسمی خود را وارد کنید</p>
+</div>
+</div>
+
+<div class="w copy">
+© ۱۴۰۵ آتی ملک — تمامی حقوق محفوظ است.
+</div>
+</footer>
+
+<div class="modal" id="userModal">
+<div class="modalBox">
+<button class="close" onclick="closeModal()" aria-label="بستن">×</button>
+<h2>پنل کاربری آتی ملک</h2>
+<p style="font-size:11px;color:#aaa;line-height:2">این نسخه نمایشی است؛ ورود با پیامک، ذخیره اطلاعات و تراکنش واقعی هنوز فعال نشده است.</p>
+
+<div class="tabs">
+<button class="tab on" onclick="switchTab('loginPanel',this)">ورود / ثبت‌نام</button>
+<button class="tab" onclick="switchTab('dashboardPanel',this)">داشبورد نمایشی</button>
+</div>
+
+<div id="loginPanel">
+<label for="mobileNumber">شماره موبایل</label>
+<input id="mobileNumber" type="tel" inputmode="tel" placeholder="شماره موبایل خود را وارد کنید" style="width:100%;padding:11px;background:#090b0c;color:#fff;border:1px solid #444;border-radius:6px;margin-top:8px">
+<br><br>
+<button class="btn" onclick="showDemoDashboard()">مشاهده داشبورد نمایشی</button>
+</div>
+
+<div id="dashboardPanel" class="dash">
+<div class="cards">
+<div class="mini">ارزش نمونه دارایی<b>۹۰۰,۰۰۰,۰۰۰ تومان</b></div>
+<div class="mini">متراژ نمونه<b>۱۵ متر</b></div>
+</div>
+
+<h3>تراکنش‌های نمونه</h3>
+<div class="tx"><span>پرداخت خرید متری</span><span class="ok">نمونه</span></div>
+<div class="tx"><span>درخواست برداشت</span><span>نمونه</span></div>
+
+<br>
+<button class="btn" onclick="requestWithdrawal()">ثبت درخواست برداشت نمایشی</button>
+<p id="withdrawMessage" style="font-size:11px;line-height:2;color:#f5cf7b"></p>
+</div>
+</div>
+</div><script>
+const PRICE_PER_METER = 60000000;
+
+function formatPersianNumber(number) {
+  return Number(number).toLocaleString('fa-IR');
+}
+
+function calc() {
+  const input = document.getElementById('meterInput');
+  const output = document.getElementById('totalPrice');
+
+  let meters = Number(input.value);
+
+  if (!Number.isFinite(meters) || meters < 2.5) {
+    meters = 2.5;
+    input.value = 2.5;
+  }
+
+  const total = meters * PRICE_PER_METER;
+
+  output.textContent =
+    formatPersianNumber(total) + ' تومان';
+}
+
+function step(amount) {
+  const input = document.getElementById('meterInput');
+
+  let meters = Number(input.value);
+
+  if (!Number.isFinite(meters)) {
+    meters = 2.5;
+  }
+
+  meters = Math.max(2.5, meters + amount);
+
+  input.value = meters;
+  calc();
+}
+
+function go(sectionId) {
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
+function openModal() {
+  document.getElementById('userModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('userModal').classList.remove('open');
+}
+
+function switchTab(panelId, button) {
+  document.querySelectorAll('.tabs .tab').forEach(function(tab) {
+    tab.classList.remove('on');
+  });
+
+  button.classList.add('on');
+
+  document.getElementById('loginPanel').style.display =
+    panelId === 'loginPanel' ? 'block' : 'none';
+
+  document.getElementById('dashboardPanel').classList.toggle(
+    'on',
+    panelId === 'dashboardPanel'
+  );
+}
+
+function showDemoDashboard() {
+  const mobile = document.getElementById('mobileNumber').value.trim();
+
+  if (!mobile) {
+    alert('لطفاً شماره موبایل خود را وارد کنید.');
+    return;
+  }
+
+  alert(
+    'این نسخه نمایشی است. ورود واقعی و ارسال کد پیامک هنوز فعال نشده است.'
+  );
+
+  const buttons = document.querySelectorAll('.tabs .tab');
+  switchTab('dashboardPanel', buttons[1]);
+}
+
+function requestWithdrawal() {
+  document.getElementById('withdrawMessage').textContent =
+    'این فقط یک نمایش آزمایشی است؛ درخواست واقعی ثبت یا وجهی منتقل نشده است.';
+}
+
+document.getElementById('userModal').addEventListener('click', function(event) {
+  if (event.target === this) {
+    closeModal();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+
+calc();
+</script>
+
+</body>
+</html>
