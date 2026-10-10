@@ -521,7 +521,6 @@ calc();
 const SUPABASE_URL = "https://yzydvfemjskhqhgvbejw.supabase.co";
 const SUPABASE_KEY = "sb_publishable_snh7OvAqVXziXOTkhEbMQQ_PK5e-nYg";
 const aatiSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  ```javascript
 async function registerAatiUser() {
   const email = document.getElementById('authEmail').value.trim();
   const password = document.getElementById('authPassword').value;
@@ -587,7 +586,6 @@ async function loginAatiUser() {
     message.textContent = 'خطا: ' + error.message;
   }
 }
-```
 
 </script>
 </body>
