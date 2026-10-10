@@ -361,12 +361,36 @@ header{height:64px}
 <button class="tab" onclick="switchTab('dashboardPanel',this)">داشبورد نمایشی</button>
 </div>
 
+```html
 <div id="loginPanel">
-<label for="mobileNumber">شماره موبایل</label>
-<input id="mobileNumber" type="tel" inputmode="tel" placeholder="شماره موبایل خود را وارد کنید" style="width:100%;padding:11px;background:#090b0c;color:#fff;border:1px solid #444;border-radius:6px;margin-top:8px">
-<br><br>
-<button class="btn" onclick="showDemoDashboard()">مشاهده داشبورد نمایشی</button>
+  <label for="authEmail">ایمیل</label>
+  <input
+    id="authEmail"
+    type="email"
+    autocomplete="email"
+    placeholder="example@email.com"
+    style="width:100%;padding:11px;background:#090b0c;color:#fff;border:1px solid #444;border-radius:6px;margin-top:8px;box-sizing:border-box"
+  >
+
+  <br><br>
+
+  <label for="authPassword">رمز عبور</label>
+  <input
+    id="authPassword"
+    type="password"
+    autocomplete="new-password"
+    placeholder="حداقل ۶ کاراکتر"
+    style="width:100%;padding:11px;background:#090b0c;color:#fff;border:1px solid #444;border-radius:6px;margin-top:8px;box-sizing:border-box"
+  >
+
+  <br><br>
+
+  <button class="btn" onclick="registerAatiUser()">ثبت‌نام</button>
+  <button class="btn" onclick="loginAatiUser()">ورود به حساب</button>
+
+  <p id="authMessage" style="font-size:12px;line-height:2;color:#d8b56a"></p>
 </div>
+```
 
 <div id="dashboardPanel" class="dash">
 <div class="cards">
@@ -497,6 +521,74 @@ calc();
 const SUPABASE_URL = "https://yzydvfemjskhqhgvbejw.supabase.co";
 const SUPABASE_KEY = "sb_publishable_snh7OvAqVXziXOTkhEbMQQ_PK5e-nYg";
 const aatiSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  ```javascript
+async function registerAatiUser() {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const message = document.getElementById('authMessage');
+
+  if (!email || !password) {
+    message.textContent = 'لطفاً ایمیل و رمز عبور را وارد کنید.';
+    return;
+  }
+
+  if (password.length < 6) {
+    message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
+    return;
+  }
+
+  message.textContent = 'در حال ثبت‌نام...';
+
+  try {
+    const { data, error } = await aatiSupabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        emailRedirectTo: window.location.href.split('#')[0]
+      }
+    });
+
+    if (error) throw error;
+
+    if (data.session) {
+      message.textContent = 'ثبت‌نام موفق بود و وارد حساب شدید.';
+    } else {
+      message.textContent =
+        'ثبت‌نام درخواست شد. ایمیل خود را برای تأیید حساب بررسی کنید.';
+    }
+  } catch (error) {
+    message.textContent = 'خطا: ' + error.message;
+  }
+}
+
+async function loginAatiUser() {
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const message = document.getElementById('authMessage');
+
+  if (!email || !password) {
+    message.textContent = 'لطفاً ایمیل و رمز عبور را وارد کنید.';
+    return;
+  }
+
+  message.textContent = 'در حال ورود...';
+
+  try {
+    const { data, error } =
+      await aatiSupabase.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+    if (error) throw error;
+
+    message.textContent = 'ورود موفق بود. حساب شما فعال است.';
+  } catch (error) {
+    message.textContent = 'خطا: ' + error.message;
+  }
+}
+```
+
 </script>
 </body>
 </html>
