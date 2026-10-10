@@ -497,18 +497,6 @@ calc();
 const SUPABASE_URL = "https://yzydvfemjskhqhgvbejw.supabase.co";
 const SUPABASE_KEY = "sb_publishable_snh7OvAqVXziXOTkhEbMQQ_PK5e-nYg";
 const aatiSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  aatiSupabase
-  .from('projects')
-  .select('name, city, price_per_meter, progress_percent')
-  .limit(5)
-  .then(({ data, error }) => {
-    alert(
-      error
-        ? 'خطای اتصال: ' + error.message
-        : 'اتصال موفق! تعداد پروژه‌ها: ' + data.length +
-          '\nنام پروژه: ' + data.map(p => p.name).join('، ')
-    );
-  });
 </script>
 </body>
 </html>
