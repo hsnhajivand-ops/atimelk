@@ -492,6 +492,11 @@ document.addEventListener('keydown', function(event) {
 
 calc();
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://yzydvfemjskhqhgvbejw.supabase.co";
+const SUPABASE_KEY = "sb_publishable_snh7OvAqVXziXOTkhEbMQQ_PK5e-nYg";
+const aatiSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+</script>
 </body>
 </html>
